@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders both task tabs', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Task 1 — Feedback Form/i)).toBeInTheDocument();
+  expect(screen.getByText(/Task 2 — GitHub Search/i)).toBeInTheDocument();
 });
