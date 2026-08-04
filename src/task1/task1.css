@@ -1,2 +1,36 @@
 /* Task 1 styles — this file is yours. Add your CSS here.
    Prefix your class names with "t1-" so they never clash with Task 2. */
+.container {
+  width: 350px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: darkgreen;
+}
+
+.popup {
+  margin-top: 20px;
+  padding: 12px;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
