@@ -22,6 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local only - manager notes, not for interns
+# local only - manager notes and answer keys, not for interns
 PROJECT_GUIDE.txt
+SOLUTION_TASK1.txt
+SOLUTION_TASK2.txt
 
