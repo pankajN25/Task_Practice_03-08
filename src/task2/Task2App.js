@@ -1,4 +1,9 @@
+import { useState } from 'react';
+import SearchBar from './SearchBar';
+import UserCard from './UserCard';
+import RepoList from './RepoList';
 import './task2.css';
+
 
 // =============================================================================
 // TASK 2 - GITHUB USER SEARCH DASHBOARD
@@ -105,13 +110,79 @@ import './task2.css';
 // START HERE: delete the placeholder below and build the real thing.
 
 function Task2App() {
+  const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [user, setUser] = useState(null);
+  const [repos, setRepos] = useState([]);
+  const handleSearch = async () => {
+
+  if (!username.trim()) {
+    setError('Please enter a username');
+    return;
+  }
+  setUser(null);
+setRepos([]);
+setError('');
+setLoading(true);
+
+try {
+  const userResponse = await fetch(
+  `https://api.github.com/users/${username.trim()}`
+);
+if (userResponse.status === 404) {
+  setError('User not found');
+  return;
+
+
+}
+if (!userResponse.ok) {
+  throw new Error('Failed to fetch user');
+}
+const userData = await userResponse.json();
+
+setUser(userData);
+const repoResponse = await fetch(
+  `https://api.github.com/users/${username.trim()}/repos?per_page=100`
+);
+if (!repoResponse.ok) {
+  throw new Error('Failed to fetch repositories');
+}
+const repoData = await repoResponse.json();
+const topRepos = [...repoData]
+  .sort((a, b) => b.stargazers_count - a.stargazers_count)
+  .slice(0, 5);
+  setRepos(topRepos);
+
+} 
+catch (error) {
+  setError('Something went wrong. Try again.');
+}
+ finally {
+   setLoading(false);
+}
+
+};
   return (
-    <div className="task-placeholder">
-      <h2>Task 2 — GitHub User Search</h2>
-      <p>
-        Start building in <code>src/task2/Task2App.js</code>
-      </p>
-      <p>Read README.md in this folder for the full requirements.</p>
+    <div className="t2-app">
+      <h2>GitHub User Search</h2>
+      <SearchBar
+
+  username={username}
+  setUsername={setUsername}
+  onSearch={handleSearch}
+  loading={loading}
+/>
+{loading && (
+  <p className="t2-loading">Loading...</p>
+)}
+{error && (
+  <p className="t2-error">
+    {error}
+  </p>
+)}
+{user && <UserCard user={user} />}
+{user && <RepoList repos={repos} />}
     </div>
   );
 }

@@ -1,2 +1,166 @@
 /* Task 2 styles — this file is yours. Add your CSS here.
    Prefix your class names with "t2-" so they never clash with Task 1. */
+.t2-app {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.t2-app h2 {
+  margin-bottom: 20px;
+}
+.t2-search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.t2-search-bar input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.t2-search-bar button {
+  padding: 10px 20px;
+  background-color: #24292f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.t2-search-bar button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+.t2-loading {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.t2-error {
+  color: #d32f2f;
+  background-color: #fdecec;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+.t2-user-card {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.t2-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.t2-user-info {
+  flex: 1;
+}
+
+.t2-user-info h2 {
+  margin: 0 0 5px;
+}
+
+.t2-user-stats {
+  display: flex;
+  gap: 20px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.t2-user-info a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0969da;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.t2-user-info a:hover {
+  text-decoration: underline;
+}
+.t2-repo-list {
+  margin-top: 30px;
+}
+
+.t2-repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.t2-sort-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.t2-sort-buttons button {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.t2-sort-buttons button:hover {
+  background-color: #f0f0f0;
+}
+
+.t2-repos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.t2-repo-card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.t2-repo-card a {
+  color: #0969da;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.t2-repo-card a:hover {
+  text-decoration: underline;
+}
+
+.t2-repo-card p {
+  color: #555;
+  margin: 8px 0;
+}
+
+.t2-repo-details {
+  display: flex;
+  gap: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.t2-no-repos {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  text-align: center;
+}
